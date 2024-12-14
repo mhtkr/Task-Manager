@@ -3,7 +3,7 @@ import Todo from './Components/Todo'
 
 const App = () => {
   return (
-    <div className='bg-gray-200'>
+    <div className='bg-gray-200 py-10'>
       <Todo/>
     </div>
   )
