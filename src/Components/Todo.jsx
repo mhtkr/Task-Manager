@@ -6,10 +6,12 @@ const Todo = () => {
 
   const inputRef = useRef();
   const decRef = useRef();
+  const dueDate = useRef();
 
   const add = () => {
     const inputText = inputRef.current.value.trim();
     const inputDesc = decRef.current.value.trim();
+    const inputDueDate = dueDate.current.value;
 
     if (inputText === "" || inputDesc === ""){
       return null;
@@ -19,11 +21,13 @@ const Todo = () => {
       id: Date.now(),
       text: inputText,
       desc: inputDesc,
+      dueDate: inputDueDate,
       isDone: false,
     };
     seTodoList((prev)=>[...prev, newTodo]);
     inputRef.current.value = "";
     decRef.current.value = "";
+    dueDate.current.value= "";
   };
 
   const remove = (id) => {
@@ -70,9 +74,18 @@ const Todo = () => {
       />
     </div>
 
+    <div className='bg-gray-200 rounded-lg mt-2'>
+      <input
+      ref={dueDate}
+        className='bg-transparent border-0 outline-none w-full h-14 pl-6 pr-2 placeholder:text-slate-600 rounded-full'
+        type="date"
+        placeholder="Enter the due date..."
+      />
+    </div>
+
     <div>
     {todoList.map((item, index)=>{
-      return <Items key={index} text={item.text} desc={item.desc}id={item.id} isDone={item.isDone} remove={remove} toggle={toggle}/>
+      return <Items key={index} text={item.text} desc={item.desc} dueDate={item.dueDate} id={item.id} isDone={item.isDone} remove={remove} toggle={toggle}/>
     })}
     </div>
     </div>
