@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import todo_icon from '../assets/todo_icon.png'
 import Items from './Items'
-const Todo = () => {
-  const [todoList, seTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
+
+const Todo = ({todoList, setTodoList}) => {
 
   const inputRef = useRef();
   const decRef = useRef();
@@ -24,20 +24,20 @@ const Todo = () => {
       dueDate: inputDueDate,
       isDone: false,
     };
-    seTodoList((prev)=>[...prev, newTodo]);
+    setTodoList((prev)=>[...prev, newTodo]);
     inputRef.current.value = "";
     decRef.current.value = "";
     dueDate.current.value= "";
   };
 
   const remove = (id) => {
-    seTodoList((prvTodo)=>{
+    setTodoList((prvTodo)=>{
       return prvTodo.filter((todo) => todo.id !== id)
     })
   }
 
   const toggle = (id) => {
-    seTodoList((prvTodo)=> {
+    setTodoList((prvTodo)=> {
       return prvTodo.map((todo)=>{
         if(todo.id === id){
           return {...todo, isDone: !todo.isDone}
@@ -46,11 +46,7 @@ const Todo = () => {
       })
     }
   )}
-
-  useEffect(()=>{
-    localStorage.setItem("todos", JSON.stringify(todoList))
     
-  },[todoList])
   return (
     <div className='bg-white place-self-center w-11/12 max-w-md
     flex flex-col p-7 min-h-[550px] rounded-xl'>
