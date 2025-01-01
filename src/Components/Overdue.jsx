@@ -1,6 +1,6 @@
 import React from 'react';
 import overdue_icon from '../assets/clock.png';
-import Items from './Items';  // Assuming Items is the same component as in Todo
+import Items from './Items';
 
 export const Overdue = ({ overdueList }) => {
   return (
