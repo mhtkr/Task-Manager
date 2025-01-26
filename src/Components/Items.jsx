@@ -30,12 +30,8 @@ const Items = ({ text, desc, dueDate, id, isDone, remove, toggle, isOverdue }) =
         <p className="text-sm text-gray-600">Created on: {formattedCreationDate}</p>
       </div>
       <div className='mt-2 bg-red-300 rounded-full p-1 pl-3'>
-        <p className="text-sm text-gray-600">Due date: {dueDate}</p>
+        <p className="text-sm text-red-600">Due date: {dueDate}</p>
       </div>
-
-      {isOverdue && (
-        <div className="mt-2 text-red-600 font-semibold">This task is overdue!</div>
-      )}
     </div>
   );
 };
