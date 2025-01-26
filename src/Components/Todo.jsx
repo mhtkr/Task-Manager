@@ -8,12 +8,17 @@ const Todo = ({todoList, setTodoList}) => {
   const decRef = useRef();
   const dueDate = useRef();
 
+  const nonOverdueTasks = todoList.filter((task) => {
+    const currentDate = new Date().toISOString().split('T')[0];
+    return new Date(task.dueDate) >= new Date(currentDate);
+  });
+
   const add = () => {
     const inputText = inputRef.current.value.trim();
     const inputDesc = decRef.current.value.trim();
     const inputDueDate = dueDate.current.value;
 
-    if (inputText === "" || inputDesc === ""){
+    if (inputText === "" || inputDesc === "" || inputDueDate === "") {
       return null;
     }
 
@@ -49,7 +54,7 @@ const Todo = ({todoList, setTodoList}) => {
     
   return (
     <div className='bg-white place-self-center w-11/12 max-w-md
-    flex flex-col p-7 min-h-[550px] rounded-xl'>
+    flex flex-col p-7 min-h-[550px] rounded-xl '>
   
     <div className='flex items-center mt mt-5 gap-2'>
       <img className='w-8' src={todo_icon}/>
@@ -80,7 +85,7 @@ const Todo = ({todoList, setTodoList}) => {
     </div>
 
     <div>
-    {todoList.map((item, index)=>{
+    {nonOverdueTasks.map((item, index)=>{
       return <Items key={index} text={item.text} desc={item.desc} dueDate={item.dueDate} id={item.id} isDone={item.isDone} remove={remove} toggle={toggle}/>
     })}
     </div>

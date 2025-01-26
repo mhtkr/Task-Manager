@@ -21,7 +21,7 @@ const App = () => {
   }, [todoList]);
 
   return (
-    <div className='bg-gray-200 py-10 flex flex-col items-center gap-5'>
+    <div className='bg-gray-200 py-10 flex flex-col items-center gap-5 min-h-screen'>
       <button
         onClick={() => setShowTodo((prev) => !prev)}
         className='bg-blue-500 text-white px-5 py-2 rounded-full font-medium'

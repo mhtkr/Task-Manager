@@ -5,14 +5,14 @@ import Items from './Items';
 export const Overdue = ({ overdueList }) => {
   return (
     <div className="bg-white w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl">
-      <div className="flex items-center mt mt-5 gap-2">
+      <div className="flex items-center my-5 gap-2">
         <img className="w-8" src={overdue_icon} alt="Overdue Icon" />
         <h1 className="text-3xl font-semibold">Overdue Tasks</h1>
       </div>
 
       <div>
         {overdueList.length === 0 ? (
-          <p>No overdue tasks</p>
+          <div className="text-gray-500">No overdue tasks</div>
         ) : (
           overdueList.map((item) => (
             <Items
