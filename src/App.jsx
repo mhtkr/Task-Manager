@@ -24,13 +24,13 @@ const App = () => {
     <div className='bg-gray-200 py-10 flex flex-col items-center gap-5'>
       <button
         onClick={() => setShowTodo((prev) => !prev)}
-        className='bg-blue-500 text-white px-5 py-2 rounded-lg font-medium'
+        className='bg-blue-500 text-white px-5 py-2 rounded-full font-medium'
       >
         {showTodo ? 'View Overdue Tasks' : 'View Todo List'}
       </button>
 
       {showTodo ? (
-        <Todo todoList={todoList} seTodoList={setTodoList} />
+        <Todo todoList={todoList} setTodoList={setTodoList} />
       ) : (
         <Overdue overdueList={overdueTasks} />
       )}
