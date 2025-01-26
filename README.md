@@ -16,15 +16,18 @@ A responsive and feature-rich **Task Manager** application built with **React**,
 ## **Screenshots**
 ### **Login Page**
 ![Login Page](./screenshots/login.png)  
-*Description: The login page where users can enter their credentials to access the task manager.*
 
 ### **Task Manager**
 ![Task Manager](./screenshots/task_manager.png)  
-*Description: The main interface to manage tasks. Users can add, toggle, and delete tasks.*
+
+### **Inputs**
+![Overdue Tasks](./screenshots/inputs.png)  
+
+### **Active Task**
+![Overdue Tasks](./screenshots/active_task.png)  
 
 ### **Overdue Tasks**
 ![Overdue Tasks](./screenshots/overdue_tasks.png)  
-*Description: Displays a list of overdue tasks.*
 
 ---
 
